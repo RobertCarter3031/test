@@ -1,11 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import Searchbar from './components/rentals/Searchbar';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>test</h1>
+      <Searchbar />
     </div>
   );
 }
