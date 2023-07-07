@@ -7,6 +7,12 @@ type Props = {
   dataset: Data;
 };
 
+/**
+ * Rental Card component to display image and text regarding rentals that are
+ * available on the website.
+ * @param props 
+ * @returns RentalCard component 
+ */
 const RentalCard = (props: Props) => {
   const { item, dataset } = props;
 

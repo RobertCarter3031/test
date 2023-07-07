@@ -7,6 +7,10 @@
 1. Advanced search filters - dates, location, price, beds, etc
 1. Improve pagination -- infinite scrolling, handling what happens when you get to the "end of the data"
 
+## Other future considerations
+1. If scope of project increases, utilize state store such as Redux, Context
+1. Move 'handleSearch' function out of component and into Util file
+1. Documentation
 
 ## Decisions made during project - can discuss in detail later
 *  Decided to limit the API call to 100 for now since the breadth of this test is covered with that much data. In the future, we can expand upon this by requesting the next 100 once the user reaches the last page, and adding that to the data.

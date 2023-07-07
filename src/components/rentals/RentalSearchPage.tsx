@@ -10,6 +10,12 @@ import "../styles/rentalSearchPage.css";
 
 type Props = {};
 
+/**
+ * Rental Search Page that is parent component to keep state handled for Searchbar
+ * and RentalList
+ * @param props 
+ * @returns RentalSearchPage component
+ */
 const RentalSearchPage = (props: Props) => {
   const [searchText, setSearchText] = useState("");
   const [currentSearchedTerm, setCurrentSearchedTerm] = useState("");

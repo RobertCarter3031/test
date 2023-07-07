@@ -14,6 +14,12 @@ type Props = {
   itemsPerPage: number;
 };
 
+/**
+ * Rental List component that maps through searched data and displays cards
+ * with information
+ * @param props 
+ * @returns RentalList component
+ */
 const RentalList = (props: Props) => {
   const {
     searchData,

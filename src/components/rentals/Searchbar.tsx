@@ -10,6 +10,11 @@ type Props = {
   setCurrentSearchedTerm: Function;
 };
 
+/**
+ * Searchbar component that displays a search bar and allows the user the search for keywords
+ * @param props 
+ * @returns Searchbar component
+ */
 const Searchbar = (props: Props) => {
   const { searchText, setSearchText, setSearchData, setCurrentSearchedTerm } =
     props;

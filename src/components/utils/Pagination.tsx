@@ -7,6 +7,11 @@ type Props = {
   totalPages: number;
 };
 
+/**
+ * Pagination component for navigating searched data more easily
+ * @param props 
+ * @returns Pagination component
+ */
 const Pagination = (props: Props) => {
   const { currentPage, setCurrentPage, totalPages } = props;
 
