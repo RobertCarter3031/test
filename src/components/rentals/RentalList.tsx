@@ -1,5 +1,6 @@
 import React from 'react'
-import { SearchData } from './types/SearchData'
+import { SearchData, Datum } from './types/SearchData'
+import RentalCard from './RentalCard';
 
 type Props = {
   searchData: SearchData | undefined,
@@ -14,7 +15,9 @@ const RentalList = (props: Props) => {
 
   return (
     <div>
-      <h1>Item list</h1>
+      {data && data.map((item: Datum) => {
+        return <RentalCard item={item} dataset={searchData?.data} />
+      })}
     </div>
   )
 }
