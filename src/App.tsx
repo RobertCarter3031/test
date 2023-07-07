@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Searchbar from './components/rentals/Searchbar';
+import RentalSearchPage from './components/rentals/RentalSearchPage';
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Searchbar />
+      <RentalSearchPage />
     </div>
   );
 }
