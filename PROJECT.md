@@ -15,6 +15,8 @@
 ## Decisions made during project - can discuss in detail later
 *  Decided to limit the API call to 100 for now since the breadth of this test is covered with that much data. In the future, we can expand upon this by requesting the next 100 once the user reaches the last page, and adding that to the data.
 
+* Passed a 'currentSearchedTerm' prop that is currently unused, but could be used for something in the future, decided not to remove it for now.
+
 *  Added pagination as an additional feature, possibility of adding infinite scrolling / infinite pagination in the future (until there's no more data, of course)
 
 *  Added utility function to calculate total pages and display for pagination -- including unit tests for util function
