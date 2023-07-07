@@ -1,0 +1,19 @@
+.rental-searchbar-container {
+    display:flex;
+    justify-content: left;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.rental-search-form {
+    width: 100%;
+}
+
+.rental-search-bar {
+    border-radius: 7px;
+    border: 2px solid #cccccc;
+    font-size: 24px;
+    height: 70px;
+    width: 100%;
+    padding-left: 20px;
+}

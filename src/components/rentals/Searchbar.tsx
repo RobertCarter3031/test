@@ -1,40 +1,52 @@
-import React, { useState } from 'react'
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
+
+import '../styles/searchBar.css'
 
 type Props = {
-    searchText: string,
-    setSearchText: Function,
-    setSearchData: Function,
-    setCurrentSearchedTerm: Function
-    }
+  searchText: string;
+  setSearchText: Function;
+  setSearchData: Function;
+  setCurrentSearchedTerm: Function;
+};
 
 const Searchbar = (props: Props) => {
+  const { searchText, setSearchText, setSearchData, setCurrentSearchedTerm } =
+    props;
 
-  const { searchText, setSearchText, setSearchData, setCurrentSearchedTerm } = props;
+  const BASEURL: string = "https://search.outdoorsy.com/rentals";
 
-  const BASEURL: string = "https://search.outdoorsy.com/rentals"
+  const handleSearch = async (
+    searchFilters: string,
+    pageLimit: number,
+    pageOffset: number
+  ): Promise<void> => {
+    const data: Array<Object> = await axios.get(
+      `${BASEURL}?filter[keywords]=${searchFilters}&page[limit]=${pageLimit}&page[offset]=${pageOffset}`
+    );
 
-  const handleSearch = async (searchFilters: string, pageLimit: number, pageOffset: number): Promise<void> => {
-    const data: Array<Object> = await axios.get(`${BASEURL}?filter[keywords]=${searchFilters}&page[limit]=${pageLimit}&page[offset]=${pageOffset}`);
-    
     setSearchData(data);
-  }
-  
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     handleSearch(searchText, 100, 0);
     setCurrentSearchedTerm(searchText);
-  }
+  };
 
   return (
-    <div>
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <label htmlFor="search-rentals">Search Rentals: </label>
-            <input type="text" name="search-rentals" value={searchText} onChange={e => setSearchText(e.target.value)} />
-            <button type="submit">Go!</button>
-        </form>
+    <div className="rental-searchbar-container">
+      <form className="rental-search-form" onSubmit={(e) => handleSubmit(e)}>
+        <input
+          type="text"
+          name="search-rentals"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          className="rental-search-bar"
+        />
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default Searchbar
+export default Searchbar;

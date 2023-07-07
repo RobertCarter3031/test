@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import RentalSearchPage from './components/rentals/RentalSearchPage';
+import RentalSearchPage from "./components/rentals/RentalSearchPage";
 
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
