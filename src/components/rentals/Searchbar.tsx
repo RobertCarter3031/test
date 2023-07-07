@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import '../styles/searchBar.css'
+import "../styles/searchBar.css";
 
 type Props = {
   searchText: string;

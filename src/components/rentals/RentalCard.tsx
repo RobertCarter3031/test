@@ -22,10 +22,7 @@ const RentalCard = (props: Props) => {
 
   return (
     <div className="rental-card-container">
-      <img
-        className="rental-card-image"
-        src={imgUrl || fallbackUrl}
-      />
+      <img className="rental-card-image" src={imgUrl || fallbackUrl} />
       <p className="rental-card-name">{item.attributes.name}</p>
     </div>
   );

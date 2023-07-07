@@ -3,7 +3,7 @@ import { SearchData, Datum } from "./types/SearchData";
 import RentalCard from "./RentalCard";
 import Pagination from "../utils/Pagination";
 
-import '../styles/rentalList.css'
+import "../styles/rentalList.css";
 
 type Props = {
   searchData: SearchData | undefined;
@@ -11,7 +11,7 @@ type Props = {
   currentPage: number;
   currentSearchedTerm: string;
   totalPages: number;
-  itemsPerPage: number,
+  itemsPerPage: number;
 };
 
 const RentalList = (props: Props) => {
@@ -21,28 +21,38 @@ const RentalList = (props: Props) => {
     setCurrentPage,
     currentSearchedTerm,
     totalPages,
-    itemsPerPage
+    itemsPerPage,
   } = props;
 
   const data = searchData?.data.data;
 
-  const pageData = data?.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
-
-  console.log("search data", searchData);
-  return (
-    <div className="rental-list-container">
-      <p className="total-page-counter">Total Pages: {totalPages}</p>
-      {data &&
-        pageData?.map((item: Datum) => {
-          return <RentalCard item={item} dataset={searchData?.data} />;
-        })}
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        totalPages={totalPages}
-      />
-    </div>
+  const pageData = data?.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
   );
+
+  if (totalPages > 0) {
+    return (
+      <div className="rental-list-container">
+        <p className="total-page-counter">Total Pages: {totalPages}</p>
+        {data &&
+          pageData?.map((item: Datum) => {
+            return <RentalCard item={item} dataset={searchData?.data} />;
+          })}
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalPages={totalPages}
+        />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1>Nothing's here, try searching!</h1>
+      </div>
+    );
+  }
 };
 
 export default RentalList;

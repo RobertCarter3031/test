@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 import { SearchData } from "./types/SearchData";
+import calculateTotalPages from "../utils/calculateTotalPages";
 
 import Searchbar from "./Searchbar";
 import RentalList from "./RentalList";
 
-import '../styles/rentalSearchPage.css'
+import "../styles/rentalSearchPage.css";
 
 type Props = {};
 
@@ -17,15 +18,10 @@ const RentalSearchPage = (props: Props) => {
 
   const ITEMS_PER_PAGE: number = 5;
 
-  const calculateTotalPages = (searchData: SearchData | undefined): number => {
-    if (searchData) {
-      return Math.ceil(searchData.data.data.length / ITEMS_PER_PAGE);
-    }
-
-    return 0;
-  };
-
-  const totalPages = calculateTotalPages(searchData);
+  const totalPages = calculateTotalPages(
+    searchData?.data.data.length,
+    ITEMS_PER_PAGE
+  );
 
   return (
     <div className="rental-search-container">
