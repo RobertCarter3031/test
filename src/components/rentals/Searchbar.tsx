@@ -22,7 +22,7 @@ const Searchbar = (props: Props) => {
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    handleSearch(searchText, 4, 0);
+    handleSearch(searchText, 100, 0);
     setCurrentSearchedTerm(searchText);
   }
 
